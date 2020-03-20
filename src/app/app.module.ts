@@ -11,6 +11,8 @@ import {MaterialModule} from './material/material.module';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {appReducer} from './store/app.reducer';
+import {AppEffects} from './store/app.effects';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({appReducer}, {}),
     StoreDevtoolsModule.instrument({maxAge: 25}),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AppEffects]),
     AppRoutingModule,
     MaterialModule,
     FlexLayoutModule
