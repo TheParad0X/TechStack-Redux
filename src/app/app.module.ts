@@ -1,18 +1,18 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {AppComponent} from './app.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {EffectsModule} from '@ngrx/effects';
-import {LoginComponent} from './login/login.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
+import {LoginComponent} from 'app/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {MaterialModule} from './material/material.module';
-import {FormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {appReducer} from './store/app.reducer';
 import {AppEffects} from './store/app.effects';
+import {appReducer} from './store/app.reducer';
 
 @NgModule({
   declarations: [

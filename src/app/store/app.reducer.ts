@@ -1,4 +1,5 @@
-import {createReducer} from '@ngrx/store';
+import {createReducer, on} from '@ngrx/store';
+import * as appActions from './app.actions';
 
 export interface AppState {
   currentUser: string;
@@ -8,15 +9,7 @@ const initialState: AppState = {
   currentUser: ''
 };
 
-
 export const appReducer = createReducer(
   initialState,
-  // on(currentUserActions.DoUpdateUser, (state, { updatedUser }) => ({ ...state, currentUser: updatedUser })),
-  // on(currentUserActions.DoUpdateUserDisplayName, (state, { updatedDisplayName }) => ({
-  //     ...state,
-  //     currentUser: {
-  //       ...state.currentUser,
-  //       displayName: updatedDisplayName
-  //     }
-  //   })
+  on(appActions.DoSetCurrentUser, (state, {user}) => ({...state, currentUser: user})),
 );

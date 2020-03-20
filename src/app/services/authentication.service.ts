@@ -9,7 +9,7 @@ export class AuthenticationService {
   }
 
   public handleLogin(username: string, password: string) {
-    console.log(username, password, new Date().toISOString());
+    console.log('handleLogin:', username, password, new Date().toISOString());
     // this.store.dispatch(configurationActions.LoadConfigurationRequest());
   }
 
