@@ -4,11 +4,13 @@ import * as appActions from './app.actions';
 export interface AppState {
   currentUser: string;
   users: string[];
+  loading: boolean;
 }
 
 const initialState: AppState = {
   currentUser: '',
-  users: []
+  users: [],
+  loading: false
 };
 
 export const appReducer = createReducer(
@@ -23,6 +25,8 @@ export const appReducer = createReducer(
   on(appActions.DoDeleteUser, (state, { user }) => {
     const newArray = state.users.filter(u => u !== user);
     return { ...state, users: newArray };
-
+  }),
+  on(appActions.DoSetLoading, (state, { loading }) => {
+    return { ...state, loading };
   }),
 );

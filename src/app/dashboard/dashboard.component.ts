@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   public selectCurrentUser = appSelectors.selectCurrentUser;
   public selectAllUsers = appSelectors.selectAllUsers;
+  public selectLoading = appSelectors.selectLoading;
 
   public newUserNgModel: string;
 
@@ -35,6 +36,14 @@ export class DashboardComponent implements OnInit {
 
   public onDeleteUser(user: string) {
     this.store.dispatch(appActions.DoDeleteUser({ user }));
+  }
+
+  public onStartLoading() {
+    this.store.dispatch(appActions.DoSetLoading({ loading: true }));
+  }
+
+  public onStopLoading() {
+    this.store.dispatch(appActions.DoSetLoading({ loading: false }));
   }
 
 }
