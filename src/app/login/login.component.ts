@@ -1,4 +1,7 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as appActions from 'app/store/app.actions';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +14,14 @@ export class LoginComponent {
   public username: string;
   public password: string;
 
-  constructor() {
+  constructor(private store: Store<any>, private router: Router) {
   }
 
   public onLogin() {
     console.log(this.username, this.password);
+    this.store.dispatch(appActions.DoSetCurrentUser({ user: this.username }));
+    this.router.navigate(['dashboard']);
+
   }
 
 }

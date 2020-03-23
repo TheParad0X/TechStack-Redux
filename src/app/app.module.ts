@@ -1,18 +1,18 @@
-import {NgModule} from '@angular/core';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {FormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {EffectsModule} from '@ngrx/effects';
-import {StoreModule} from '@ngrx/store';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {LoginComponent} from 'app/login/login.component';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {MaterialModule} from './material/material.module';
-import {AppEffects} from './store/app.effects';
-import {appReducer} from './store/app.reducer';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { LoginComponent } from 'app/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MaterialModule } from './material/material.module';
+import { AppEffects } from './store/app.effects';
+import { appReducer } from './store/app.reducer';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,8 @@ import {appReducer} from './store/app.reducer';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({appReducer}, {}),
-    StoreDevtoolsModule.instrument({maxAge: 25}),
+    StoreModule.forRoot({ appState: appReducer }, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
     EffectsModule.forRoot([AppEffects]),
     AppRoutingModule,
     MaterialModule,

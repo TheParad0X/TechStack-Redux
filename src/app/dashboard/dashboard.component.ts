@@ -1,4 +1,6 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as appSelectors from 'app/store/app.selectors';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +10,17 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {
+
+  public selectCurrentUser = appSelectors.selectCurrentUser;
+
+  constructor(public store: Store<any>) {
   }
 
   ngOnInit(): void {
+  }
+
+  public onLogout() {
+
   }
 
 }
