@@ -1,18 +1,53 @@
-<p>Dashboard</p>
-
-<button (click)="onLogout()" mat-button>
-  <mat-icon>exit_to_app</mat-icon>
-  <span>Logout</span>
-</button>
-
 <div>
   <mat-tab-group>
     <mat-tab label="First">
-      <pre>
-        Welcome {{ store.select(selectCurrentUser) | async }}
-      </pre>
+      <div class="basic-container">
+        <div>
+          Welcome {{ store.select(selectCurrentUser) | async }}
+        </div>
+        <div>
+          <button (click)="onLogout()" color="primary" mat-button>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+
+        </div>
+      </div>
     </mat-tab>
-    <mat-tab label="Second"> Content 2</mat-tab>
-    <mat-tab label="Third"> Content 3</mat-tab>
+    <mat-tab label="Second">
+      <div class="basic-container">
+        <mat-form-field>
+          <input [(ngModel)]="newUserNgModel"
+                 matInput
+                 placeholder='Username'
+                 type="text">
+        </mat-form-field>
+        <button (click)="onAddUser()" color="primary" mat-button>
+          <mat-icon>person_add</mat-icon>
+        </button>
+        <ng-container *ngIf="store.select(selectAllUsers) | async as allUsers">
+          <mat-list *ngIf="allUsers.length > 0 else noUsers">
+            <mat-list-item *ngFor="let user of allUsers">
+              {{ user }}
+              <button (click)="onDeleteUser(user)" color="primary" mat-button>
+                <mat-icon>delete_forever</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+          <ng-template #noUsers>
+            <div>
+              <mat-icon>info</mat-icon>
+              <span>No Users</span>
+            </div>
+          </ng-template>
+
+        </ng-container>
+      </div>
+    </mat-tab>
+    <mat-tab label="Third">
+      <div class="basic-container">
+        <mat-spinner></mat-spinner>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>
