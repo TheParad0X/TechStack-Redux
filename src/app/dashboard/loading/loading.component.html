@@ -1,0 +1,9 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2em">
+  <button (click)="onStartLoading()" color="primary" mat-button>
+    <mat-icon>play_arrow</mat-icon>
+  </button>
+  <button (click)="onStopLoading()" color="primary" mat-button>
+    <mat-icon>stop</mat-icon>
+  </button>
+  <mat-spinner *ngIf="store.select(selectLoading) | async" [diameter]="24"></mat-spinner>
+</div>

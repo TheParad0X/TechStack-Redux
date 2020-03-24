@@ -2,56 +2,17 @@
   <mat-tab-group>
     <mat-tab label="Profile">
       <div class="basic-container">
-        <div>
-          Welcome {{ store.select(selectCurrentUser) | async }}
-        </div>
-        <div>
-          <button (click)="onLogout()" color="primary" mat-button>
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Logout</span>
-          </button>
-        </div>
+        <app-welcome></app-welcome>
       </div>
     </mat-tab>
     <mat-tab label="Users">
       <div class="basic-container">
-        <mat-form-field>
-          <input [(ngModel)]="newUserNgModel"
-                 matInput
-                 placeholder='Username'
-                 type="text">
-        </mat-form-field>
-        <button (click)="onAddUser()" color="primary" mat-button>
-          <mat-icon>person_add</mat-icon>
-        </button>
-        <ng-container *ngIf="store.select(selectAllUsers) | async as allUsers">
-          <mat-list *ngIf="allUsers.length > 0 else noUsers">
-            <mat-list-item *ngFor="let user of allUsers">
-              {{ user }}
-              <button (click)="onDeleteUser(user)" color="primary" mat-button>
-                <mat-icon>delete_forever</mat-icon>
-              </button>
-            </mat-list-item>
-          </mat-list>
-          <ng-template #noUsers>
-            <div>
-              <mat-icon>info</mat-icon>
-              <span>No Users</span>
-            </div>
-          </ng-template>
-
-        </ng-container>
+        <app-user-list></app-user-list>
       </div>
     </mat-tab>
     <mat-tab label="Loading">
-      <div class="basic-container" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2em">
-        <button (click)="onStartLoading()" color="primary" mat-button>
-          <mat-icon>play_arrow</mat-icon>
-        </button>
-        <button (click)="onStopLoading()" color="primary" mat-button>
-          <mat-icon>stop</mat-icon>
-        </button>
-        <mat-spinner *ngIf="store.select(selectLoading) | async" [diameter]="24"></mat-spinner>
+      <div class="basic-container">
+        <app-loading></app-loading>
       </div>
     </mat-tab>
   </mat-tab-group>

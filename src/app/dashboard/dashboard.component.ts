@@ -1,8 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as appActions from 'app/store/app.actions';
-import * as appSelectors from 'app/store/app.selectors';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,40 +7,10 @@ import * as appSelectors from 'app/store/app.selectors';
   styleUrls: ['./dashboard.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-  public selectCurrentUser = appSelectors.selectCurrentUser;
-  public selectAllUsers = appSelectors.selectAllUsers;
-  public selectLoading = appSelectors.selectLoading;
-
-  public newUserNgModel: string;
-
-  constructor(public store: Store<any>, private router: Router) {
+  constructor(public store: Store<any>) {
   }
 
-  ngOnInit(): void {
-  }
-
-  public onLogout() {
-    this.store.dispatch(appActions.DoSetCurrentUser({ user: '' }));
-    this.router.navigate(['login']);
-  }
-
-  public onAddUser() {
-    this.store.dispatch(appActions.DoAddUser({ user: this.newUserNgModel }));
-    this.newUserNgModel = '';
-  }
-
-  public onDeleteUser(user: string) {
-    this.store.dispatch(appActions.DoDeleteUser({ user }));
-  }
-
-  public onStartLoading() {
-    this.store.dispatch(appActions.DoSetLoading({ loading: true }));
-  }
-
-  public onStopLoading() {
-    this.store.dispatch(appActions.DoSetLoading({ loading: false }));
-  }
 
 }

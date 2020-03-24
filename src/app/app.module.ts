@@ -10,6 +10,9 @@ import { LoginComponent } from 'app/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoadingComponent } from './dashboard/loading/loading.component';
+import { UserListComponent } from './dashboard/user-list/user-list.component';
+import { WelcomeComponent } from './dashboard/welcome/welcome.component';
 import { MaterialModule } from './material/material.module';
 import { AppEffects } from './store/app.effects';
 import { appReducer } from './store/app.reducer';
@@ -18,7 +21,10 @@ import { appReducer } from './store/app.reducer';
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    WelcomeComponent,
+    UserListComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

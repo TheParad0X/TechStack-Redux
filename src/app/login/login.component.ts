@@ -11,17 +11,16 @@ import * as appActions from 'app/store/app.actions';
 })
 export class LoginComponent {
 
-  public username: string;
-  public password: string;
+  public usernameModel: string;
+  public passwordModel: string;
 
   constructor(private store: Store<any>, private router: Router) {
   }
 
   public onLogin() {
-    console.log(this.username, this.password);
-    this.store.dispatch(appActions.DoSetCurrentUser({ user: this.username }));
+    console.log(this.usernameModel, this.passwordModel);
+    this.store.dispatch(appActions.DoSetCurrentUser({ user: this.usernameModel }));
     this.router.navigate(['dashboard']);
-
   }
 
 }
