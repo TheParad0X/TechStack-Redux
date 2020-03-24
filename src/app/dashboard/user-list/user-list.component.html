@@ -1,0 +1,26 @@
+<mat-form-field>
+  <input [(ngModel)]="newUserNgModel"
+         matInput
+         placeholder='Username'
+         type="text">
+</mat-form-field>
+<button (click)="onAddUser()" color="primary" mat-button>
+  <mat-icon>person_add</mat-icon>
+</button>
+<ng-container *ngIf="store.select(selectAllUsers) | async as allUsers">
+  <mat-list *ngIf="allUsers.length > 0 else noUsers">
+    <mat-list-item *ngFor="let user of allUsers">
+      {{ user }}
+      <button (click)="onDeleteUser(user)" color="primary" mat-button>
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+  <ng-template #noUsers>
+    <div>
+      <mat-icon>info</mat-icon>
+      <span>No Users</span>
+    </div>
+  </ng-template>
+
+</ng-container>
