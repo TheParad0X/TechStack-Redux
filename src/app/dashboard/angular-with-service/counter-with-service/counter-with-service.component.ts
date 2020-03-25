@@ -8,7 +8,7 @@ import { DataService } from 'app/dashboard/angular-with-service/data.service';
 })
 export class CounterWithServiceComponent {
 
-  constructor(private dataService: DataService) {
+  constructor(public dataService: DataService) {
   }
 
   public onIncrement() {
