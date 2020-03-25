@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateChild, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as appSelectors from 'app/store/app.selectors';
 import { Observable } from 'rxjs';
@@ -12,15 +12,17 @@ export class SecurityGuard implements CanActivateChild {
 
   public selectCurrentUser = appSelectors.selectCurrentUser;
 
-  constructor(private store: Store<any>) {
+  constructor(public store: Store<any>, private router: Router) {
   }
 
   public canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean | UrlTree> {
     let result: string;
     // subscribe() runs synchonously
     this.store.select(this.selectCurrentUser).pipe(first()).subscribe(r => result = r);
-    console.log(result);
-    return result !== '';
+    if (result !== '') {
+      return true;
+    }
+    this.router.navigate(['login']);
   }
 
 }

@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -10,7 +9,7 @@ import { Store } from '@ngrx/store';
 })
 export class WelcomeComponent {
 
-  constructor(public store: Store<any>, private router: Router) {
+  constructor(public store: Store<any>) {
   }
 
 
