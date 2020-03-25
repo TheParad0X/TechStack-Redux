@@ -21,7 +21,12 @@ export const appReducer = createReducer(
   on(appActions.DoIncrementCounter, (state) => ({ ...state, counter: state.counter + 1 })),
   on(appActions.DoDecrementCounter, (state) => ({ ...state, counter: state.counter - 1 })),
 
-  //on(appActions.DoSetCurrentUser, (state, { user }) => ({ ...state, currentUser: user })),
+  on(appActions.AddUserSuccess, (state, { user }) => ({ ...state, users: [...state.users, user] })),
+  on(appActions.DeleteUserSuccess, (state, { user }) => {
+    const newArray = state.users.filter(u => u !== user);
+    return { ...state, users: newArray };
+  }),
+
   on(appActions.DoSetCurrentUser, (state, { user }) => {
     return { ...state, currentUser: user };
   }),
@@ -35,4 +40,5 @@ export const appReducer = createReducer(
   on(appActions.DoSetLoading, (state, { loading }) => {
     return { ...state, loading };
   }),
-);
+  )
+;

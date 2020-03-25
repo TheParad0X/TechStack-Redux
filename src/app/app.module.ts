@@ -26,6 +26,7 @@ import { ContainerComponent } from './dashboard/angularOnly/container/container.
 import { CounterComponent } from './dashboard/angularOnly/counter/counter.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoadingComponent } from './dashboard/loading/loading.component';
+import { UserListBackendComponent } from './dashboard/user-list-backend/user-list-backend.component';
 import { UserListComponent } from './dashboard/user-list/user-list.component';
 import { MaterialModule } from './material/material.module';
 import { ProfileComponent } from './profile/profile.component';
@@ -54,7 +55,8 @@ import { appReducer } from './store/app.reducer';
     CounterWithStoreComponent,
     ContainerWithStoreComponent,
     FComponent,
-    GComponent
+    GComponent,
+    UserListBackendComponent
   ],
   imports: [
     BrowserModule,
