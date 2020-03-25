@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Observable, of, throwError } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
-  constructor(
-    private store: Store<any>) {
-  }
-
-  public handleLogin(username: string, password: string) {
-    console.log('handleLogin:', username, password, new Date().toISOString());
-    // this.store.dispatch(configurationActions.LoadConfigurationRequest());
+  public handleLogin(username: string, password: string): Observable<string> {
+    if (username === 'tim' && password === '123456') {
+      return of(username);
+    } else {
+      return throwError('Wrong credentials');
+    }
   }
 
 }

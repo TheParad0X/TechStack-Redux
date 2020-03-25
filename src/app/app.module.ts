@@ -14,6 +14,7 @@ import { LoadingComponent } from './dashboard/loading/loading.component';
 import { UserListComponent } from './dashboard/user-list/user-list.component';
 import { WelcomeComponent } from './dashboard/welcome/welcome.component';
 import { MaterialModule } from './material/material.module';
+import { ProfileComponent } from './profile/profile.component';
 import { AppEffects } from './store/app.effects';
 import { appReducer } from './store/app.reducer';
 
@@ -24,7 +25,8 @@ import { appReducer } from './store/app.reducer';
     DashboardComponent,
     WelcomeComponent,
     UserListComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

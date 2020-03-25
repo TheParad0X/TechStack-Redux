@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { AuthenticationService } from 'app/services/authentication.service';
 import * as appActions from 'app/store/app.actions';
 
 @Component({
@@ -14,13 +16,19 @@ export class LoginComponent {
   public usernameModel: string;
   public passwordModel: string;
 
-  constructor(private store: Store<any>, private router: Router) {
+  constructor(private store: Store<any>,
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private authenticationService: AuthenticationService) {
   }
 
   public onLogin() {
-    console.log(this.usernameModel, this.passwordModel);
-    this.store.dispatch(appActions.DoSetCurrentUser({ user: this.usernameModel }));
-    this.router.navigate(['dashboard']);
+    this.authenticationService.handleLogin(this.usernameModel, this.passwordModel).subscribe(
+      (username) => {
+        this.store.dispatch(appActions.DoSetCurrentUser({ user: username }));
+        this.router.navigate(['dashboard']);
+      },
+      (error => this.snackBar.open(error, undefined, { duration: 3000, verticalPosition: 'top', horizontalPosition: 'center', panelClass: ['error-snackbar'] }))
+    );
   }
-
 }

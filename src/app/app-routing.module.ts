@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SecurityGuard } from 'app/security-guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 
@@ -9,19 +10,19 @@ const appRoutes: Routes = [
     component: LoginComponent
   }, {
     path: '',
-    // canActivateChild: [SecurityGuard],
+    canActivateChild: [SecurityGuard],
     children: [
       {
         path: '',
         redirectTo: '/login',
         pathMatch: 'full',
-      }, {
+      },
+      {
         path: 'dashboard',
         component: DashboardComponent
       },
     ],
   },
-
   { path: '**', redirectTo: '' },
 ];
 
@@ -32,3 +33,14 @@ const appRoutes: Routes = [
 export class AppRoutingModule {
 
 }
+
+//  { path: 'login', component: LoginComponent },
+//  {
+//    path: '',
+//    canActivateChild: [SecurityGuard],
+//    children: [
+//      {
+//        path: '',
+//        redirectTo: '/plants',
+//        pathMatch: 'full',
+//      },
