@@ -15,6 +15,11 @@ import { ContainerWithServiceComponent } from './dashboard/angular-with-service/
 import { CounterWithServiceComponent } from './dashboard/angular-with-service/counter-with-service/counter-with-service.component';
 import { DComponent } from './dashboard/angular-with-service/d/d.component';
 import { EComponent } from './dashboard/angular-with-service/e/e.component';
+import { AngularWithStoreComponent } from './dashboard/angular-with-store/angular-with-store.component';
+import { ContainerWithStoreComponent } from './dashboard/angular-with-store/container-with-store/container-with-store.component';
+import { CounterWithStoreComponent } from './dashboard/angular-with-store/counter-with-store/counter-with-store.component';
+import { FComponent } from './dashboard/angular-with-store/f/f.component';
+import { GComponent } from './dashboard/angular-with-store/g/g.component';
 import { AComponent } from './dashboard/angularOnly/a/a.component';
 import { BComponent } from './dashboard/angularOnly/b/b.component';
 import { ContainerComponent } from './dashboard/angularOnly/container/container.component';
@@ -44,7 +49,12 @@ import { appReducer } from './store/app.reducer';
     ContainerWithServiceComponent,
     DComponent,
     EComponent,
-    CounterWithServiceComponent
+    CounterWithServiceComponent,
+    AngularWithStoreComponent,
+    CounterWithStoreComponent,
+    ContainerWithStoreComponent,
+    FComponent,
+    GComponent
   ],
   imports: [
     BrowserModule,

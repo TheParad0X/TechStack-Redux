@@ -18,8 +18,8 @@ const initialState: AppState = {
 export const appReducer = createReducer(
   initialState,
 
-  on(appActions.DoIncrement, (state) => ({ ...state, counter: state.counter + 1 })),
-  on(appActions.DoIncrement, (state) => ({ ...state, counter: state.counter - 1 })),
+  on(appActions.DoIncrementCounter, (state) => ({ ...state, counter: state.counter + 1 })),
+  on(appActions.DoDecrementCounter, (state) => ({ ...state, counter: state.counter - 1 })),
 
   //on(appActions.DoSetCurrentUser, (state, { user }) => ({ ...state, currentUser: user })),
   on(appActions.DoSetCurrentUser, (state, { user }) => {
