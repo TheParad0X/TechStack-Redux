@@ -5,9 +5,16 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
+
     <app-counter (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-counter>
-    <app-a (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-a>
-    <app-b (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-b>
-    <app-c (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-c>
+
+    <app-a [counter]="counter"></app-a>
+    <app-b [counter]="counter"></app-b>
+    <app-c [counter]="counter"></app-c>
+
+    <!--    <app-a (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-a>-->
+    <!--    <app-b (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-b>-->
+    <!--    <app-c (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-c>-->
+
   </mat-card-content>
 </mat-card>
