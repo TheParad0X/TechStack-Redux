@@ -6,8 +6,10 @@
   </mat-card-header>
   <mat-card-content>
 
+    <!-- Counter   -->
     <app-counter (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-counter>
 
+    <!--  Components A and B   -->
     <app-a [counter]="counter"></app-a>
     <app-b [counter]="counter"></app-b>
 

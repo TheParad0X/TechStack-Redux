@@ -10,6 +10,11 @@ import { AngularOnlyComponent } from 'app/dashboard/angularOnly/angular-only.com
 import { LoginComponent } from 'app/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AngularWithServiceComponent } from './dashboard/angular-with-service/angular-with-service.component';
+import { ContainerWithServiceComponent } from './dashboard/angular-with-service/container-with-service/container-with-service.component';
+import { CounterWithServiceComponent } from './dashboard/angular-with-service/counter-with-service/counter-with-service.component';
+import { DComponent } from './dashboard/angular-with-service/d/d.component';
+import { EComponent } from './dashboard/angular-with-service/e/e.component';
 import { AComponent } from './dashboard/angularOnly/a/a.component';
 import { BComponent } from './dashboard/angularOnly/b/b.component';
 import { ContainerComponent } from './dashboard/angularOnly/container/container.component';
@@ -34,7 +39,12 @@ import { appReducer } from './store/app.reducer';
     AComponent,
     BComponent,
     ContainerComponent,
-    CounterComponent
+    CounterComponent,
+    AngularWithServiceComponent,
+    ContainerWithServiceComponent,
+    DComponent,
+    EComponent,
+    CounterWithServiceComponent
   ],
   imports: [
     BrowserModule,

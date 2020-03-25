@@ -5,10 +5,13 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
+
+    <!--  Counter  -->
     <app-counter (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-counter>
+
+    <!--  Container  -->
     <app-container [counter]="counter"></app-container>
     <!--    <app-container (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-container>-->
+
   </mat-card-content>
 </mat-card>
-
-

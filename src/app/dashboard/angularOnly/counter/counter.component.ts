@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
   styleUrls: ['./counter.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent {
 
   @Input()
   counter: number;
@@ -15,9 +15,6 @@ export class CounterComponent implements OnInit {
   public numberChanged = new EventEmitter<number>();
 
   constructor() {
-  }
-
-  ngOnInit(): void {
   }
 
   public onIncrement() {
