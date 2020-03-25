@@ -5,3 +5,11 @@
   background-color: darkred;
   border: black;
 }
+
+
+.mat-card {
+  max-width: 400px;
+  border: 1px solid;
+  padding: 1em;
+  margin: 1em;
+}

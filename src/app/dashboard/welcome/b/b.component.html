@@ -1,19 +1,10 @@
-<app-profile></app-profile>
-
-<br>
-<mat-divider></mat-divider>
-<br>
-
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      Oberste Komponente
+      Komponente B
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <app-counter (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-counter>
-    <app-container (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-container>
   </mat-card-content>
 </mat-card>
-
-

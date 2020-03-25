@@ -9,7 +9,13 @@ import { Store } from '@ngrx/store';
 })
 export class WelcomeComponent {
 
+  public counter = 0;
+
   constructor(public store: Store<any>) {
+  }
+
+  public onNumberChanged(counter: number) {
+    this.counter = counter;
   }
 
 
