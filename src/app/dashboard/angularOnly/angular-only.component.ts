@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css'],
+  selector: 'app-angular-only',
+  templateUrl: './angular-only.component.html',
+  styleUrls: ['./angular-only.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WelcomeComponent {
+export class AngularOnlyComponent {
 
   public counter = 0;
 
@@ -17,6 +17,5 @@ export class WelcomeComponent {
   public onNumberChanged(counter: number) {
     this.counter = counter;
   }
-
 
 }
