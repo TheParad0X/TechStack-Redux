@@ -10,6 +10,15 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 export class AppEffects {
 
   @Effect()
+  loadAllUsersRequest$: Observable<Action> = this.actions$.pipe(
+    ofType(appActions.LoadAllUsersRequest),
+    switchMap((action) => this.userService.loadAllUsers().pipe(
+      map((users: string[]) => appActions.LoadAllUsersSuccess({ users })),
+      catchError((error: string) => of(appActions.LoadAllUsersFailure({ errorMessage: error })))
+    )),
+  );
+
+  @Effect()
   addUserRequest$: Observable<Action> = this.actions$.pipe(
     ofType(appActions.AddUserRequest),
     switchMap((action) => this.userService.addUser(action.user).pipe(
@@ -17,6 +26,7 @@ export class AppEffects {
       catchError((error: string) => of(appActions.AddUserFailure({ errorMessage: error })))
     )),
   );
+
   @Effect()
   deleteUserRequest$: Observable<Action> = this.actions$.pipe(
     ofType(appActions.DeleteUserRequest),
@@ -28,4 +38,5 @@ export class AppEffects {
 
   constructor(private actions$: Actions, private userService: UserService) {
   }
+
 }

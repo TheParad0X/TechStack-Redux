@@ -5,7 +5,6 @@
   <mat-spinner *ngIf="store.select(selectLoading) | async" [diameter]="24"></mat-spinner>
 </div>
 
-
 <ng-template #stopLoading>
   <button (click)="onStopLoading()" color="primary" mat-button>
     <mat-icon>stop</mat-icon>

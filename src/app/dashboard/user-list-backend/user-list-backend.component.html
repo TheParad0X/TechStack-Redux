@@ -1,12 +1,18 @@
-<mat-form-field>
-  <input [(ngModel)]="newUserNgModel"
-         matInput
-         placeholder='Username'
-         type="text">
-</mat-form-field>
-<button (click)="onAddUser()" color="primary" mat-button>
-  <mat-icon>person_add</mat-icon>
-</button>
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1em">
+  <mat-form-field>
+    <input [(ngModel)]="newUserNgModel"
+           matInput
+           placeholder='Username'
+           type="text">
+  </mat-form-field>
+  <button (click)="onAddUser()" color="primary" mat-button>
+    <mat-icon>person_add</mat-icon>
+  </button>
+  <button (click)="onLoadAllUsers()" color="primary" mat-button>
+    Load all users
+  </button>
+  <!--  <mat-spinner *ngIf="store.select(selectLoading) | async" [diameter]="24"></mat-spinner>-->
+</div>
 <ng-container *ngIf="store.select(selectAllUsers) | async as allUsers">
   <mat-list *ngIf="allUsers.length > 0 else noUsers">
     <mat-list-item *ngFor="let user of allUsers">
@@ -17,10 +23,9 @@
     </mat-list-item>
   </mat-list>
   <ng-template #noUsers>
-    <div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5em">
       <mat-icon>info</mat-icon>
-      <span>No Users</span>
+      <div>No Users</div>
     </div>
   </ng-template>
-
 </ng-container>

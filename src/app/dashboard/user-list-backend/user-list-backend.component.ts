@@ -10,10 +10,15 @@ import * as appSelectors from 'app/store/app.selectors';
 })
 export class UserListBackendComponent {
 
+  public selectLoading = appSelectors.selectLoading;
   public selectAllUsers = appSelectors.selectAllUsers;
   public newUserNgModel: string;
 
   constructor(public store: Store<any>) {
+  }
+
+  public onLoadAllUsers() {
+    this.store.dispatch(appActions.LoadAllUsersRequest());
   }
 
   public onAddUser() {

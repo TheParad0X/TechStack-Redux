@@ -27,6 +27,9 @@ export const appReducer = createReducer(
     return { ...state, users: newArray };
   }),
 
+  on(appActions.LoadAllUsersRequest, (state) => ({ ...state, loading: true })),
+  on(appActions.LoadAllUsersSuccess, (state, { users }) => ({ ...state, users, loading: false })),
+
   on(appActions.DoSetCurrentUser, (state, { user }) => {
     return { ...state, currentUser: user };
   }),
@@ -40,5 +43,4 @@ export const appReducer = createReducer(
   on(appActions.DoSetLoading, (state, { loading }) => {
     return { ...state, loading };
   }),
-  )
-;
+);
