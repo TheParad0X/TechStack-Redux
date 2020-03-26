@@ -9,17 +9,59 @@ export const selectCounter = createSelector(
 );
 
 
-export const selectCurrentUser = createSelector(
-  selectAppState,
-  (state) => state.currentUser
-);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const selectAllUsers = createSelector(
   selectAppState,
-  (state) => state.users
+  (appState) => appState.users
 );
+
 
 export const selectLoading = createSelector(
   selectAppState,
   (state) => state.loading
+);
+
+export const selectCurrentUser = createSelector(
+  selectAppState,
+  (state) => state.currentUser
 );

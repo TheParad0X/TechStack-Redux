@@ -9,6 +9,9 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 @Injectable()
 export class AppEffects {
 
+  constructor(private actions$: Actions, private userService: UserService) {
+  }
+
   @Effect()
   loadAllUsersRequest$: Observable<Action> = this.actions$.pipe(
     ofType(appActions.LoadAllUsersRequest),
@@ -35,8 +38,5 @@ export class AppEffects {
       catchError((error: string) => of(appActions.DeleteUserFailure({ errorMessage: error })))
     )),
   );
-
-  constructor(private actions$: Actions, private userService: UserService) {
-  }
 
 }
