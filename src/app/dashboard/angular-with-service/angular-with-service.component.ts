@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from 'app/dashboard/angular-with-service/data.service';
 
 @Component({
   selector: 'app-angular-with-service',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AngularWithServiceComponent {
 
-  constructor() {
+  constructor(public dataService: DataService) {
   }
 
 }

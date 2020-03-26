@@ -6,7 +6,4 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   public counter = 0;
-
-  constructor() {
-  }
 }

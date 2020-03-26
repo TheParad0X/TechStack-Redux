@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as appActions from './app.actions';
 
+
 export interface AppState {
   counter: number;
   currentUser: string;
@@ -26,11 +27,9 @@ export const appReducer = createReducer(
     const newArray = state.users.filter(u => u !== user);
     return { ...state, users: newArray };
   }),
-
   on(appActions.LoadAllUsersRequest, (state) => ({ ...state, loading: true })),
   on(appActions.LoadAllUsersSuccess, (state, { users }) => ({ ...state, users, loading: false })),
-
-  on(appActions.DoSetCurrentUser, (state, { user }) => {
+  on(appActions.DoSetCurrentUser, (state, { user, }) => {
     return { ...state, currentUser: user };
   }),
   on(appActions.DoAddUser, (state, { user }) => {

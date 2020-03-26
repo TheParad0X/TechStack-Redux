@@ -16,10 +16,10 @@ export class SecurityGuard implements CanActivateChild {
   }
 
   public canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean | UrlTree> {
-    let result: string;
+    let result: any;
     // subscribe() runs synchonously
     this.store.select(this.selectCurrentUser).pipe(first()).subscribe(r => result = r);
-    if (result !== '') {
+    if (result) {
       return true;
     }
     this.router.navigate(['login']);

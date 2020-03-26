@@ -18,7 +18,7 @@ export class ProfileComponent {
   }
 
   public onLogout() {
-    this.store.dispatch(appActions.DoSetCurrentUser({ user: '' }));
+    this.store.dispatch(appActions.DoClearCurrentUser());
     this.router.navigate(['login']);
   }
 

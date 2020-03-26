@@ -1,11 +1,23 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
+      DataService
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Counter: {{ dataService.counter }}
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
       Oberste Komponente
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <app-counter-with-service></app-counter-with-service>
     <app-container-with-service></app-container-with-service>
+    <!--    <app-e></app-e>-->
   </mat-card-content>
 </mat-card>
