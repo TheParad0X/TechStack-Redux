@@ -1,11 +1,15 @@
 <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1em">
+
   <div>Counter: {{ store.select(selectCounter) | async}}</div>
+
   <button (click)="onIncrement()" color="primary" mat-button>
     <mat-icon>add</mat-icon>
     <span>1</span>
   </button>
+
   <button (click)="onDecrement()" color="primary" mat-button>
     <mat-icon>remove</mat-icon>
     <span>1</span>
   </button>
+
 </div>

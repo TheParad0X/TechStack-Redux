@@ -5,8 +5,9 @@ export const selectAppState = createFeatureSelector<AppState>('appState');
 
 export const selectCounter = createSelector(
   selectAppState,
-  (state) => state.counter
+  (appState) => appState.counter
 );
+
 
 export const selectCurrentUser = createSelector(
   selectAppState,

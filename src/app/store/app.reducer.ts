@@ -3,14 +3,19 @@ import * as appActions from './app.actions';
 
 
 export interface AppState {
+
   counter: number;
+
+
   currentUser: string;
   users: string[];
   loading: boolean;
 }
 
+
 const initialState: AppState = {
   counter: 0,
+
   currentUser: '',
   users: [],
   loading: false
@@ -18,9 +23,14 @@ const initialState: AppState = {
 
 export const appReducer = createReducer(
   initialState,
-
-  on(appActions.DoIncrementCounter, (state) => ({ ...state, counter: state.counter + 1 })),
+  on(appActions.DoIncrementCounter, (state) => {
+    return {
+      ...state,
+      counter: state.counter + 1
+    };
+  }),
   on(appActions.DoDecrementCounter, (state) => ({ ...state, counter: state.counter - 1 })),
+
 
   on(appActions.AddUserSuccess, (state, { user }) => ({ ...state, users: [...state.users, user] })),
   on(appActions.DeleteUserSuccess, (state, { user }) => {
