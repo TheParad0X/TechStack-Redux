@@ -12,6 +12,7 @@ export class CounterWithStoreComponent {
 
   public selectCounter = appSelectors.selectCounter;
 
+
   constructor(public store: Store<any>) {
   }
 

@@ -8,53 +8,10 @@ export const selectCounter = createSelector(
   (appState) => appState.counter
 );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const selectAllUsers = createSelector(
   selectAppState,
   (appState) => appState.users
 );
-
 
 export const selectLoading = createSelector(
   selectAppState,

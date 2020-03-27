@@ -10,11 +10,11 @@
     <app-counter (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-counter>
 
     <!--  Components A and B   -->
-    <app-a [counter]="counter"></app-a>
-    <app-b [counter]="counter"></app-b>
+<!--    <app-a [counter]="counter"></app-a>-->
+<!--    <app-b [counter]="counter"></app-b>-->
 
-    <!--    <app-a (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-a>-->
-    <!--    <app-b (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-b>-->
+        <app-a (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-a>
+        <app-b (numberChanged)="onNumberChanged($event)" [counter]="counter"></app-b>
 
   </mat-card-content>
 </mat-card>

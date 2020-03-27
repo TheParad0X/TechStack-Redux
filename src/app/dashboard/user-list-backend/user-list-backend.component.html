@@ -11,7 +11,7 @@
   <button (click)="onLoadAllUsers()" color="primary" mat-button>
     Load all users
   </button>
-  <!--  <mat-spinner *ngIf="store.select(selectLoading) | async" [diameter]="24"></mat-spinner>-->
+    <mat-spinner *ngIf="store.select(selectLoading) | async" [diameter]="24"></mat-spinner>
 </div>
 <ng-container *ngIf="store.select(selectAllUsers) | async as allUsers">
   <mat-list *ngIf="allUsers.length > 0 else noUsers">

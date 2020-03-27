@@ -5,7 +5,6 @@ import * as appActions from './app.actions';
 export interface AppState {
 
   counter: number;
-
   users: string[];
   loading: boolean;
   currentUser: string;
@@ -14,7 +13,6 @@ export interface AppState {
 
 const initialState: AppState = {
   counter: 0,
-
   currentUser: '',
   users: [],
   loading: false
@@ -22,97 +20,35 @@ const initialState: AppState = {
 
 export const appReducer = createReducer(
   initialState,
+
+  // Counter
   on(appActions.DoIncrementCounter, (state) => {
-    return {
-      ...state,
-      counter: state.counter + 1
+    return  {
+      ...state, counter: state.counter + 1
     };
   }),
-
   on(appActions.DoDecrementCounter, (state) => ({ ...state, counter: state.counter - 1 })),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // User
   on(appActions.DoAddUser, (state, { user }) => {
     return {
       ...state,
       users: [...state.users, user]
     };
   }),
-
   on(appActions.DoDeleteUser, (state, { user }) => {
     const newArray = state.users.filter(u => u !== user);
     return { ...state, users: newArray };
   }),
 
+  // User mit Effekt
+  on(appActions.AddUserRequest, (state) => ({ ...state, loading: true })),
+  on(appActions.AddUserSuccess, (state, { user }) => ({ ...state, users: [...state.users, user], loading: false })),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  on(appActions.AddUserSuccess, (state, { user }) => ({ ...state, users: [...state.users, user] })),
   on(appActions.DeleteUserSuccess, (state, { user }) => {
     const newArray = state.users.filter(u => u !== user);
     return { ...state, users: newArray };
   }),
-
-
   on(appActions.LoadAllUsersSuccess, (state, { users }) => ({ ...state, users, loading: false })),
 
 
