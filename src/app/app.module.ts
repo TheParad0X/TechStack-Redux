@@ -32,6 +32,7 @@ import { MaterialModule } from './material/material.module';
 import { ProfileComponent } from './profile/profile.component';
 import { AppEffects } from './store/app.effects';
 import { appReducer } from './store/app.reducer';
+import { SandboxComponent } from './dashboard/sandbox/sandbox.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { appReducer } from './store/app.reducer';
     ContainerWithStoreComponent,
     FComponent,
     GComponent,
-    UserListBackendComponent
+    UserListBackendComponent,
+    SandboxComponent
   ],
   imports: [
     BrowserModule,

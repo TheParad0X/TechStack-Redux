@@ -22,3 +22,5 @@ export const DoSetLoading = createAction('[App] Do Set Loading', props<{ loading
 
 export const DoSetCurrentUser = createAction('[App] Do Set Current User', props<{ user: string }>());
 export const DoClearCurrentUser = createAction('[App] Do Clear Current User');
+
+export const Test = createAction('[App] Test');
